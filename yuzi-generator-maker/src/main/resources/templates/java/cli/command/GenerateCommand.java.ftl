@@ -23,10 +23,6 @@ ${indent}CommandLine commandLine = new CommandLine(${modelInfo.type}Command.clas
 ${indent}commandLine.execute(${modelInfo.allArgsStr});
 </#macro>
 
-<#macro argsList modelInfo>
-
-</#macro>
-
 @Command(name = "generate", description = "生成代码", mixinStandardHelpOptions = true)
 @Data
 public class GenerateCommand implements Callable<Integer> {
