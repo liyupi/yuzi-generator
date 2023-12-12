@@ -12,6 +12,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 装配的地址 -->
+        <assembly>src/main/resources/assembly.xml</assembly>
     </properties>
 
     <dependencies>
@@ -61,9 +63,9 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+<!--                    <descriptorRefs>-->
+<!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
+<!--                    </descriptorRefs>-->
                     <archive>
                         <manifest>
                             <mainClass>com.yupi.Main</mainClass> <!-- 替换为你的主类的完整类名 -->
@@ -76,6 +78,12 @@
                         <goals>
                             <goal>single</goal>
                         </goals>
+                        <configuration>
+                            <!-- assembly.xml -->
+                            <descriptors>
+                                <descriptor>${assembly}</descriptor>
+                            </descriptors>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
