@@ -2,6 +2,7 @@
 
 generated
 .idea
+.temp
 target
 yuzi-generator.iml
 
