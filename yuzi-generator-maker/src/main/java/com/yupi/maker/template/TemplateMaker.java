@@ -54,6 +54,8 @@ public class TemplateMaker {
         // 一、输入信息
         // 输入文件信息
         String sourceRootPath = templatePath + File.separator + FileUtil.getLastPathEle(Paths.get(originProjectPath)).toString();
+        // 注意 win 系统需要对路径进行转义
+        sourceRootPath = sourceRootPath.replaceAll("\\\\", "/");
         List<TemplateMakerFileConfig.FileInfoConfig> fileConfigInfoList = templateMakerFileConfig.getFiles();
 
         // 二、生成文件模板
@@ -173,13 +175,16 @@ public class TemplateMaker {
      * @return
      */
     private static Meta.FileConfig.FileInfo makeFileTemplate(TemplateMakerModelConfig templateMakerModelConfig, String sourceRootPath, File inputFile) {
-        String fileInputPath = inputFile.getAbsolutePath().replace(sourceRootPath + "/", "");
+        // 要挖坑的文件绝对路径（用于制作模板）
+        // 注意 win 系统需要对路径进行转义
+        String fileInputAbsolutePath = inputFile.getAbsolutePath().replaceAll("\\\\", "/");
+        String fileOutputAbsolutePath = fileInputAbsolutePath + ".ftl";
+
+        // 文件输入输出相对路径（用于生成配置）
+        String fileInputPath = fileInputAbsolutePath.replace(sourceRootPath + "/", "");
         String fileOutputPath = fileInputPath + ".ftl";
 
         // 使用字符串替换，生成模板文件
-        String fileInputAbsolutePath = inputFile.getAbsolutePath();
-        String fileOutputAbsolutePath = inputFile.getAbsolutePath() + ".ftl";
-
         String fileContent;
         // 如果已有模板文件，说明不是第一次制作，则在模板基础上再次挖坑
         if (FileUtil.exist(fileOutputAbsolutePath)) {
