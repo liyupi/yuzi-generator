@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "fileConfig": {
+    "files": [
+      {
+        "path": "src/main/resources/application.yml"
+      },
+      {
+        "path": "src/main/java/com/yupi/springbootinit/MainApplication.java"
+      },
+      {
+        "path": "pom.xml"
+      }
+    ]
+  },
+  "modelConfig": {
+    "models": [
+      {
+        "fieldName": "needRedis",
+        "type": "boolean",
+        "description": "是否开启Redis功能",
+        "defaultValue": true
+      }
+    ]
+  }
+}
