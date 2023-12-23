@@ -24,7 +24,7 @@ public class TemplateMakerUtils {
                 .filter(fileInfo -> StrUtil.isNotBlank(fileInfo.getGroupKey()))
                 .collect(Collectors.toList());
 
-        // 获取所有分组内的文件列表的
+        // 获取所有分组内的文件列表
         List<Meta.FileConfig.FileInfo> groupInnerFileInfoList = groupFileInfoList.stream()
                 .flatMap(fileInfo -> fileInfo.getFiles().stream())
                 .collect(Collectors.toList());
@@ -34,7 +34,7 @@ public class TemplateMakerUtils {
                 .map(Meta.FileConfig.FileInfo::getInputPath)
                 .collect(Collectors.toSet());
 
-        // 移除所有名称在 set 中的外层文件
+        // 移除所有输入路径在 set 中的外层文件
         return fileInfoList.stream()
                 .filter(fileInfo -> !fileInputPathSet.contains(fileInfo.getInputPath()))
                 .collect(Collectors.toList());

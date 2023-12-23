@@ -71,8 +71,13 @@ public class TemplateMaker {
         }
 
         // 一、输入信息
-        // 输入文件信息
-        String sourceRootPath = FileUtil.loopFiles(new File(templatePath), 1, null).get(0).getAbsolutePath();
+        // 输入文件信息，获取到项目根目录
+        String sourceRootPath = FileUtil.loopFiles(new File(templatePath), 1, null)
+                .stream()
+                .filter(File::isDirectory)
+                .findFirst()
+                .orElseThrow(RuntimeException::new)
+                .getAbsolutePath();
         // 注意 win 系统需要对路径进行转义
         sourceRootPath = sourceRootPath.replaceAll("\\\\", "/");
 
@@ -118,7 +123,7 @@ public class TemplateMaker {
 
         // 2. 额外的输出配置
         if (templateMakerOutputConfig != null) {
-            // 全局文件去重
+            // 文件外层和分组去重
             if (templateMakerOutputConfig.isRemoveGroupFilesFromRoot()) {
                 List<Meta.FileConfig.FileInfo> fileInfoList = newMeta.getFileConfig().getFiles();
                 newMeta.getFileConfig().setFiles(TemplateMakerUtils.removeGroupFilesFromRoot(fileInfoList));
