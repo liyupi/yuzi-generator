@@ -23,21 +23,9 @@ mybatis-plus:
   configuration:
     # 生产环境关闭日志
     log-impl: ''
-# 接口文档的配置
-springdoc:
-  group-configs:
-    - group: 'default'
-      packages-to-scan: com.yupi.web.controller
-# knife4j的增强配置，不需要增强可以不配
+# 接口文档配置
 knife4j:
-  # 开启增强配置
-  enable: true
-  # 开启生产环境屏蔽
-  production: true
-  # 开启Swagger的Basic认证功能,默认是false
   basic:
     enable: true
-    # Basic认证用户名
     username: root
-    # Basic认证密码
     password: 123456

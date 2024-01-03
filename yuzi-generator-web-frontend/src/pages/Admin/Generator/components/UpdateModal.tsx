@@ -1,4 +1,4 @@
-import { updateGenerator } from '@/services/backend/generatorController';
+import { updateGeneratorUsingPost } from '@/services/backend/generatorController';
 import { ProColumns, ProTable } from '@ant-design/pro-components';
 import '@umijs/max';
 import { message, Modal } from 'antd';
@@ -22,7 +22,7 @@ const handleUpdate = async (fields: API.GeneratorUpdateRequest) => {
   fields.modelConfig = JSON.parse((fields.modelConfig || '{}') as string);
   const hide = message.loading('正在更新');
   try {
-    await updateGenerator(fields);
+    await updateGeneratorUsingPost(fields);
     hide();
     message.success('更新成功');
     return true;

@@ -1,4 +1,4 @@
-import { updateUser } from '@/services/backend/userController';
+import { updateUserUsingPost } from '@/services/backend/userController';
 import { ProColumns, ProTable } from '@ant-design/pro-components';
 import '@umijs/max';
 import { message, Modal } from 'antd';
@@ -20,7 +20,7 @@ interface Props {
 const handleUpdate = async (fields: API.UserUpdateRequest) => {
   const hide = message.loading('正在更新');
   try {
-    await updateUser(fields);
+    await updateUserUsingPost(fields);
     hide();
     message.success('更新成功');
     return true;

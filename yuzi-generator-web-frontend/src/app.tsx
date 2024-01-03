@@ -1,6 +1,6 @@
 import logo from '@/assets/logo.png';
 import Footer from '@/components/Footer';
-import { getLoginUser } from '@/services/backend/userController';
+import { getLoginUserUsingGet } from '@/services/backend/userController';
 import type { RunTimeLayoutConfig } from '@umijs/max';
 import { history } from '@umijs/max';
 import defaultSettings from '../config/defaultSettings';
@@ -20,7 +20,7 @@ export async function getInitialState(): Promise<InitialState> {
   const { location } = history;
   if (location.pathname !== loginPath) {
     try {
-      const res = await getLoginUser();
+      const res = await getLoginUserUsingGet();
       initialState.currentUser = res.data;
     } catch (error: any) {
       // 如果未登录

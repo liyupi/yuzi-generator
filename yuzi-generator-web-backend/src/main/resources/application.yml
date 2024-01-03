@@ -63,11 +63,14 @@ cos:
     secretKey: xxx
     region: xxx
     bucket: xxx
-# 接口文档的配置
-springdoc:
-  group-configs:
-    - group: 'default'
-      packages-to-scan: com.yupi.web.controller
-# knife4j的增强配置，不需要增强可以不配
+# 接口文档配置
 knife4j:
   enable: true
+  openapi:
+    title: "接口文档"
+    version: 1.0
+    group:
+      default:
+        api-rule: package
+        api-rule-resources:
+          - com.yupi.web.controller
