@@ -41,6 +41,11 @@ export const requestConfig: RequestConfig = {
         throw new Error('服务异常');
       }
 
+      // 文件下载时，直接返回
+      if (requestPath.includes("download")) {
+        return response;
+      }
+
       // 错误码处理
       const code: number = data.code;
       // 未登录，且不为获取用户登录信息接口
