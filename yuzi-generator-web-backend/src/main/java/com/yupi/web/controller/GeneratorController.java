@@ -292,7 +292,7 @@ public class GeneratorController {
             // 处理下载到的流
             byte[] bytes = IOUtils.toByteArray(cosObjectInput);
             // 设置响应头
-            response.setContentType("application/octet-stream");
+            response.setContentType("application/octet-stream;charset=UTF-8");
             response.setHeader("Content-Disposition", "attachment; filename=" + filepath);
             // 写入响应
             response.getOutputStream().write(bytes);
