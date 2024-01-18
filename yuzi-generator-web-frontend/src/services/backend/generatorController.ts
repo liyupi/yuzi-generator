@@ -17,6 +17,21 @@ export async function addGeneratorUsingPost(
   });
 }
 
+/** cacheGenerator POST /api/generator/cache */
+export async function cacheGeneratorUsingPost(
+  body: API.GeneratorCacheRequest,
+  options?: { [key: string]: any },
+) {
+  return request<any>('/api/generator/cache', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** deleteGenerator POST /api/generator/delete */
 export async function deleteGeneratorUsingPost(
   body: API.DeleteRequest,
@@ -98,6 +113,21 @@ export async function listGeneratorVoByPageUsingPost(
   options?: { [key: string]: any },
 ) {
   return request<API.BaseResponsePageGeneratorVO_>('/api/generator/list/page/vo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** listGeneratorVOByPageFast POST /api/generator/list/page/vo/fast */
+export async function listGeneratorVoByPageFastUsingPost(
+  body: API.GeneratorQueryRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponsePageGeneratorVO_>('/api/generator/list/page/vo/fast', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
