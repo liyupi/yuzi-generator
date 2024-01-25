@@ -123,6 +123,9 @@ public class CosManager {
      */
     public DeleteObjectsResult deleteObjects(List<String> keyList)
             throws MultiObjectDeleteException, CosClientException, CosServiceException {
+        if (CollUtil.isEmpty(keyList)) {
+            return null;
+        }
         DeleteObjectsRequest deleteObjectsRequest = new DeleteObjectsRequest(cosClientConfig.getBucket());
         // 设置要删除的key列表, 最多一次删除1000个
         ArrayList<DeleteObjectsRequest.KeyVersion> keyVersions = new ArrayList<>();
