@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "fileConfig": {
+    "fileGroupConfig": {
+      "groupKey": "post",
+      "groupName": "帖子文件组",
+      "condition": "needPost"
+    },
+    "files": [
+      {
+        "path": "src/main",
+        "filterConfigList": [
+          {
+            "range": "fileName",
+            "rule": "contains",
+            "value": "Post"
+          }
+        ]
+      }
+    ]
+  },
+  "modelConfig": {
+    "models": [
+      {
+        "fieldName": "needPost",
+        "type": "boolean",
+        "description": "是否开启帖子功能",
+        "defaultValue": true
+      }
+    ]
+  }
+}

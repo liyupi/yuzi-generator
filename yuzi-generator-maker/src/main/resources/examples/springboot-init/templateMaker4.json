@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "fileConfig": {
+    "files": [
+      {
+        "path": "src/main/java/com/yupi/springbootinit/config/Knife4jConfig.java",
+        "condition": "needDocs"
+      }
+    ]
+  },
+  "modelConfig": {
+    "models": [
+      {
+        "fieldName": "needDocs",
+        "type": "boolean",
+        "description": "是否开启接口文档功能",
+        "defaultValue": true
+      }
+    ]
+  }
+}

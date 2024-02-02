@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "cos.client.accessKey",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.accessKey."
+    },
+    {
+      "name": "cos.client.secretKey",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.secretKey."
+    },
+    {
+      "name": "cos.client.region",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.region."
+    },
+    {
+      "name": "cos.client.bucket",
+      "type": "java.lang.String",
+      "description": "Description for cos.client.bucket."
+    },
+    {
+      "name": "wx.open.appId",
+      "type": "java.lang.String",
+      "description": "Description for wx.open.appId."
+    },
+    {
+      "name": "wx.open.appSecret",
+      "type": "java.lang.String",
+      "description": "Description for wx.open.appSecret."
+    }
+  ]
+}
