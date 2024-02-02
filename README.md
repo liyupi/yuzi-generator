@@ -12,6 +12,8 @@
 
 在线体验：[http://yuzi.code-nav.cn](http://yuzi.code-nav.cn/)
 
+视频演示：[https://www.bilibili.com/video/BV1EA4m1L7tm/](https://www.bilibili.com/video/BV1EA4m1L7tm/)
+
 ![](https://pic.yupi.icu/1/image-20240130143818360.png)
 
 
