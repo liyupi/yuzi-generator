@@ -24,6 +24,17 @@ public class Login implements Callable<Integer> {
     }
 
     public static void main(String[] args) {
-        new CommandLine(new Login()).execute("-u", "user123", "-p", "123", "-cp", "456");
+        List<String> argList = new ArrayList<>(Arrays.asList(args));
+        argList.add("-u");
+        argList.add("user888");
+        //动态检查是否包含 -p 和 -cp 选项，如果不包含，则将它们添加到参数列表中。
+        if (!argList.contains("-p")) {
+            argList.add("-p");
+        }
+        if (!argList.contains("-cp")) {
+            argList.add("-cp");
+        }
+        new CommandLine(new SingleLogin()).execute(argList.toArray(new String[0]));
+        //new CommandLine(new Login()).execute("-u", "user123", "-p", "123", "-cp", "456");
     }
 }
